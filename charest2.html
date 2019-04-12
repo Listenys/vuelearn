@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>learn vue.js</title>
+		<script type="text/javascript" src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app-1">
+			<p v-once>{{a + 2}}</p>
+		</div>
+		<div id="app-2">
+			<p>普通文本{{message}}</p>
+			<p v-html="message"></p>
+			<p>{{ok ? 'yes' : 'no' }}</p>
+		</div>
+		<script type="text/javascript">
+			var temple = {a:1};
+
+			var vm = new Vue({
+				el:'#app-1',
+				data: temple
+			})
+
+			var vn = new Vue({
+				data:{
+					b : 5
+				},
+				created:function(){
+					alert('b is ' + this.b)
+				}
+			})
+
+			var app2 = new Vue({
+				el:'#app-2',
+				data:{
+					message : "<span style='color:red;'>this is a red text</span>",
+					ok : 0
+				}
+			})
+		</script>
+	</body>
+</html>
